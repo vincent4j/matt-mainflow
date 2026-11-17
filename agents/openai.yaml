@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Mainflow"
+  short_description: "统一推进需求、规格、工单、实现、审查与复盘，支持阶段确认和暂停续接"
+  default_prompt: "使用 $matt-mainflow 查看当前任务阶段，并按确认后的下一步推进。"
