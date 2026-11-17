@@ -18,7 +18,7 @@
 
 本 skill 复用 [mattpocock/skills](https://github.com/mattpocock/skills) 的阶段指引，不包含其副本。需要：`grill-with-docs`、`to-spec`、`to-tickets`、`implement`、`code-review`、`retro`，以及 `setup-matt-pocock-skills`、`grilling`、`domain-modeling`、`tdd`、`codebase-design`、`writing-for-agents`。不使用 `implement-spec`。
 
-本机通过 `/Users/vincent4j/.agents/skills/matt-mainflow` 软链接接入本仓库。其他环境把仓库接入宿主支持的 skills 搜索目录，并安装上述依赖。斜杠菜单和嵌套调用能力取决于宿主；不支持原生嵌套调用时，入口读取阶段文件作为操作指南。
+将本仓库放入宿主支持的 skills 搜索目录，或通过软链接接入，并安装上述依赖。入口根据宿主提供的路径定位各阶段指引。斜杠菜单和嵌套调用能力取决于宿主；不支持原生嵌套调用时，入口读取阶段文件作为操作指南。
 
 阶段确认用于推进当前任务；提交、推送及外部发布沿用用户的实际授权。实现已产生的有效审查结果会复用，避免重复审查。
 
