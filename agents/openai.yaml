@@ -1,4 +1,5 @@
 interface:
   display_name: "Matt Pocock Mainflow"
   short_description: "一个入口编排 Matt Pocock 的 The Main Flow，支持阶段确认和暂停续接"
-  default_prompt: "使用 $matt-mainflow 查看当前任务阶段，并按确认后的下一步推进。"
+  icon_large: "./assets/icon.png"
+  default_prompt: "使用 $matt-mainflow，根据我的任务和已有产物判断从哪一步开始。"

@@ -3,7 +3,7 @@
   "code": "matt-mainflow",
   "version": "1.0.0",
   "name": "Matt Pocock Mainflow",
-  "description": "将 Matt Pocock 的六步开发工作流 The Main Flow（30 万+ GitHub Stars）串成一个入口，帮你和 Agent 在写代码前谈清需求、拆成可验收的工单，写完后按约定审查代码。",
+  "description": "把 Matt Pocock 的六步开发工作流 The Main Flow（Skills 仓库获 30 万+ GitHub Stars）串成一个入口，给开发流程加上「自动挡」：你只管说要做什么，Agent 会根据实际任务和当前进度判断该走哪一步，并调用对应的 Skill，让这套工作流更容易上手。",
   "runtimeTargets": [
     "codex",
     "claude-code",
@@ -17,15 +17,19 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "2e869165e4709311f5ff4fd3b8fad85f6c683e11ba9edc813d3c51a0f625e83a"
+      "sha256": "d4135c24c92073cfe28fb9d278d23312565d1292c444b8d29b90a32d417342bd"
     },
     {
       "path": "SKILL.md",
-      "sha256": "691a35e21488bcb116e49ac2b154285cd94ca6269cdb35b74a9ab2372b7f4a13"
+      "sha256": "a3815b836350545826dfa21de3e845f90602df5897f4a914e7f545e8dbedadbf"
     },
     {
       "path": "agents/openai.yaml",
-      "sha256": "9d1e0ac8f1b80659ca77049ba0fbdf6932d641a6b734194dea7d648d4ea7955a"
+      "sha256": "d10fff6c743f7da500319012a72c7bdbe75c8456d5520bb58c4167e84dc50c12"
+    },
+    {
+      "path": "assets/icon.png",
+      "sha256": "54560139accbdd470d599bf413f1ab5b43faa2576ecf50be99beecbd3d9ec371"
     },
     {
       "path": "assets/the-main-flow.png",
@@ -33,19 +37,48 @@
     },
     {
       "path": "references/implementation.md",
-      "sha256": "3542d780812264ae3bab43a381d01175b52b2f53944bf495149a3486ba912975"
+      "sha256": "c0449377bc24dcc1e79b5861622999a8d7f024114c9a438a15c328e062c47b28"
     },
     {
       "path": "references/setup.md",
-      "sha256": "ffc1b51da534f741ba6c0f42d8f2b7c9be289e007ce5695ae6fcbc42c357f32e"
+      "sha256": "1cfaa9c27e4bd16b502333b2f54a80aadf3d1937da00346445cb2a9803ee96a9"
     },
     {
       "path": "references/state.md",
-      "sha256": "dcaca994560f336a5ea42f18fbf7af541001f6ae250682b9d81967d2c8254da0"
+      "sha256": "9ffe8cb05f91648b94a94ad5583201bcab88ed7c4a9ab9e106e32e49467bbe85"
     },
     {
       "path": "references/validation.md",
-      "sha256": "69967498bb8b66c20649849a60384038c99ef16e5f6d51924bf7ea406ed188bd"
+      "sha256": "698a67b458c0ef1c1b30bbc4957e43f961c2719db8a3ab1ae7d6d5f953d5af07"
     }
-  ]
+  ],
+  "upstream": {
+    "repository": "mattpocock/skills",
+    "revision": "5863806dd4e15c63174bee4e7515a4256792ecfa",
+    "sha256": {
+      "LICENSE": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+      "skills/engineering/code-review/SKILL.md": "9c921a8d88138a41401d8897ca1bb852088ab1b7b605cdd04edc13e3e8aab6dd",
+      "skills/engineering/codebase-design/DEEPENING.md": "f3dd099ce99289bd213914d8ee3e2429b78309c3957ca4583f7659551b1d53c1",
+      "skills/engineering/codebase-design/DESIGN-IT-TWICE.md": "c222ab5a82e0405672eb9062d62496139a08828e45d07fc5f18e4952c10fac1a",
+      "skills/engineering/codebase-design/SKILL.md": "2c20617f87ec8af6a434859f381b2f061a69b530444e74eb39e78bb016a6d1e2",
+      "skills/engineering/domain-modeling/ADR-FORMAT.md": "944c92aa790e8fbdc9199640b170979abb8a34ba8d0fe18c2a01a63bce140ca0",
+      "skills/engineering/domain-modeling/GLOSSARY-FORMAT.md": "21dcc40cdec8e151a829b98ab1517c1867bc444e3665134a98c6983411996801",
+      "skills/engineering/domain-modeling/SKILL.md": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+      "skills/engineering/grill-with-docs/SKILL.md": "7de372c13488f1ee96cc11cd8907b56b6809cc93eef776eeddd37de6b6cbe3fe",
+      "skills/engineering/implement/SKILL.md": "483bdc4ccf4ac31d86ac7beeaa0d0db80313e71e120bb8c59b3196ae5decd53d",
+      "skills/engineering/retro/SKILL.md": "33fbc28568e3146f20fd908b12998bc0ab30aa4f4c87288199a40793efa94696",
+      "skills/engineering/setup-matt-pocock-skills/SKILL.md": "b01e05bfe8c323171275c6ceec78b12f1bd4c62dfd26c2cfe8be806d3883f1ed",
+      "skills/engineering/setup-matt-pocock-skills/domain.md": "593a7042218689f1d24df89df14eaf0a20e19e0d0a7d479a01947ac78f0784b9",
+      "skills/engineering/setup-matt-pocock-skills/triage-labels.md": "ae512af838c78b8750471c42cd2b20fa32319553e61d84c9a23d171b40ce14aa",
+      "skills/engineering/tdd/SKILL.md": "5505d25bbaa8fc14a79e4d20163936958992a2995b7f1dd1d6197edc9ed722e0",
+      "skills/engineering/tdd/mocking.md": "3ceb807fdf4a47d6a93d4d9a891e5ba6d362a6247bd08adc451feebfc17361ef",
+      "skills/engineering/tdd/tests.md": "859f9e592c188fda4fc7277dd180e4ce9c7a2e13f6efe1f6f29eccc9d28c106a",
+      "skills/engineering/to-spec/SKILL.md": "43ad9cf318e5e7d3d1fa360253a37021796dc87a0c2e595ad262661a10f85088",
+      "skills/engineering/to-tickets/SKILL.md": "56ec23c5b2782785d4e65bff9e315b6d3aeb4ef977c174a219e99489fada1995",
+      "skills/productivity/grilling/SKILL.md": "a146842ed93ca43d833550fa9adf02e58cb63c83fea9d4b4522995b82242d4e2",
+      "skills/productivity/writing-for-agents/SKILL-MECHANICS.md": "c768e6307c7c10728c401c213f2c4ba71c542127eeb7ad2956aabd15a0fa0059",
+      "skills/productivity/writing-for-agents/SKILL.md": "551adca942227b44192edba88acd4e8db911f0121ce58ad16944ccf6a896a74a"
+    },
+    "license": "MIT"
+  }
 }
