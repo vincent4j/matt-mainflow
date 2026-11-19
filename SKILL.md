@@ -1,6 +1,6 @@
 ---
 name: matt-mainflow
-description: 编排 Matt Pocock 的 The Main Flow。用户要求使用 matt-mainflow 或按 Matt 主流程开发时，根据已有产物选择上游阶段，显示进度与下一步，并支持范围确认、回退和跨会话续接。
+description: 把 Matt Pocock 的六步开发工作流 The Main Flow（Skills 仓库获 30 万+ GitHub Stars）串成一个入口，给开发流程加上「自动挡」：你只管说要做什么，Agent 会根据实际任务和当前进度判断该走哪一步，并调用对应的 Skill，让这套工作流更容易上手。在调用 matt-mainflow 或明确要求按 Matt 主流程开发时启用。
 ---
 
 # Matt Pocock Mainflow

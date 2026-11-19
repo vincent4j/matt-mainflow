@@ -2,12 +2,15 @@
   "type": "skill",
   "code": "matt-mainflow",
   "version": "1.0.1",
-  "name": "Matt Pocock Mainflow",
+  "name": "Matt Pocock 开发工作流",
   "description": "把 Matt Pocock 的六步开发工作流 The Main Flow（Skills 仓库获 30 万+ GitHub Stars）串成一个入口，给开发流程加上「自动挡」：你只管说要做什么，Agent 会根据实际任务和当前进度判断该走哪一步，并调用对应的 Skill，让这套工作流更容易上手。",
   "runtimeTargets": [
     "codex",
     "claude-code",
-    "workbuddy"
+    "workbuddy",
+    "zcode",
+    "deepseek-harness",
+    "opencode"
   ],
   "examplePrompts": [
     "用 Matt Pocock 开发工作流 推进登录跳转需求，先确认范围和验收条件。",
@@ -21,7 +24,7 @@
     },
     {
       "path": "SKILL.md",
-      "sha256": "a8eb8ed24db04e2ee9cd62c814e6fc3039413b9820babdfd1298340f89e7efba"
+      "sha256": "736f651bd764f3b090cd17d02783234945c14532e58580cc6d6ed777d3825459"
     },
     {
       "path": "agents/openai.yaml",
