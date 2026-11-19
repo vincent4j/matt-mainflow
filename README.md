@@ -1,34 +1,96 @@
-# Matt Mainflow
+<h1 align="center">Matt Pocock 开发工作流</h1>
 
-一个入口，按任务选择 Matt Pocock 开发主流程的起点和深度。输入 `/matt-mainflow` 并描述任务，Agent 会显示当前阶段和下一步。已授权的动作连续执行，需要你作决定时再停。
+<p align="center">Matt Pocock Mainflow</p>
+
+<p align="center">
+  <strong>将 Matt Pocock 的六步开发工作流 The Main Flow（30 万+ GitHub Stars）串成一个入口，帮你和 Agent 在写代码前谈清需求、拆成可验收的工单，写完后按约定审查代码。</strong>
+</p>
+
+<p align="center">
+  <a href="https://www.aihero.dev/skills">查看 Matt Pocock 的 Skills 和 The Main Flow</a>
+</p>
+
+<p align="center">
+  <a href="#why">The Main Flow 解决什么问题</a> ·
+  <a href="#workflow">Matt Pocock 开发工作流 怎么用</a> ·
+  <a href="#quickstart">快速上手</a> ·
+  <a href="#project-files">项目文件</a>
+</p>
+
+---
+
+<a id="why"></a>
+
+## 💡 The Main Flow 解决什么问题？
+
+把一个粗略的功能想法交给 Agent，它可能很快就写出代码，但需求边界和验收条件往往还没谈清。Matt Pocock 的 **The Main Flow** 给出了从想法到交付的路线。先把关键决定写成规格，再拆成可以独立验收的工单。实现后，用同一份规格检查代码有没有做对，最后复盘哪里可以改进。 [The Main Flow 原文](https://www.aihero.dev/skills)
 
 **需求讨论 → 写规格 → 拆工单 → 实现 → 代码审查 → 复盘**
 
-行为和验收明确的小改动可直接实现与审查。需要跨会话交接或有多个相依切片时拆工单。完整的选择条件见[路线说明](SKILL.md#选择路线)。
+`grill-with-docs` → `to-spec` → `to-tickets` → `implement` → `code-review` → `retro`
 
-## 使用
+[![AI Hero 页面截图，展示 The Main Flow 的六个 Skills](assets/the-main-flow.png)](https://www.aihero.dev/skills)
 
-- 开始：`/matt-mainflow 我想修复登录后跳转错误`
-- 查看：`查看进度`
-- 推进：`确认继续`
-- 调整：`返回写规格，我想修改验收条件`
-- 暂停：`暂停`；以后在项目中再次调用入口即可续接。
-- 收尾：验收和审查完成，复盘已完成或按确认的路线跳过后，回复 `收尾`。正式成果提交后，确认清单并回复 `清理本任务`，删除该任务的全部临时产物。
+<a id="workflow"></a>
 
-每个任务的进度保存在实际开发项目的 `.scratch/matt-mainflow/<task-slug>/state.md`。工单存于开发项目的 `.scratch/<task-slug>/issues/`，每张一个编号 Markdown 文件。支持从已有规格或工单接入。
+## 🎯 Matt Pocock 开发工作流 让这套流程更容易用
 
-## 依赖与安装
+**Matt Pocock 开发工作流 把 Matt Pocock 的六个 Skills 串成一个入口。** 把任务和手头已有的规格或工单交给它，它会选好从哪一步开始、提示接下来做什么，并记录进度。换个会话也能接着做。
 
-项目首次启用时，从 `matt-mainflow` 入口按 [项目启用](SKILL.md#项目启用) 配置本地工单和 Git 忽略规则。
+| 你手头的任务 | Matt Pocock 开发工作流 怎么推进 |
+|---|---|
+| 登录跳转有个小问题，复现和验收都清楚 | 直接修复、验证，再检查改动是否符合验收。 |
+| 想做一个功能，行为和边界还没说清 | 先和你确认关键决定，再写成规格供确认。一次能做完时，直接进入实现。 |
+| 项目要分几次做，或者要交给另一个会话接手 | 把规格拆成可独立验收的工单，经你确认后按依赖推进。 |
+| 手上已经有规格或工单 | 核对现有文件与当前任务，从最早还有工作的阶段接入。 |
 
-本 skill 按所选阶段复用 [mattpocock/skills](https://github.com/mattpocock/skills) 的指引。完整路线的依赖见[阶段表](SKILL.md#读取对应流程)。
+代码审查同时看项目规范和已确认的需求。有返工、漏检或交接问题时，可以复盘哪一步值得改进。完整的路线选择见 [Skill 说明](SKILL.md#选择路线)。
 
-将本仓库放入宿主支持的 skills 搜索目录，或通过软链接接入，并安装所选阶段依赖。入口根据宿主提供的路径定位阶段指引。斜杠菜单和嵌套调用能力取决于宿主。
+---
 
-阶段确认用于推进当前任务；提交、推送及外部发布沿用用户的实际授权。确认会绑定具体范围和产物版本，内容变化后重新确认。实现按已选批次连续推进，批次内包含工单审查和复验，第 5 阶段再核验整体审查覆盖。
+<a id="quickstart"></a>
 
-## 验证范围
+## 🚀 快速上手
 
-静态格式校验不证明宿主发现、跨会话续接或真实开发流程已经通过；这些需要在实际宿主和开发项目中验证。
+### 安装
 
-维护和验收时使用[场景清单](references/validation.md)，记录实际结果与证据。
+把下面这句话发给你的 Agent。
+
+```text
+请从 https://github.com/vincent4j/matt-mainflow 安装 matt-mainflow 到你的 Skills 目录，并按仓库 SKILL.md 中的阶段依赖表安装所需的 Matt Pocock Skills。
+```
+
+安装后打开新会话，在技能列表中确认能找到这个 Skill。
+
+### 开始一个任务
+
+在开发项目中选择 **Matt Pocock 开发工作流**（英文菜单中显示为 **Matt Pocock Mainflow**）并描述任务。支持斜杠菜单的 Agent 可以这样输入。
+
+```text
+/matt-mainflow 登录成功后应返回登录前访问的页面。先和我确认验收条件，再开始修改。
+```
+
+| 你想做什么 | 直接告诉 Agent |
+|---|---|
+| 看看做到哪了 | 查看进度 |
+| 推进刚展示的待确认步骤 | 确认继续 |
+| 改一条已经讨论过的需求 | 返回写规格，我想修改验收条件 |
+| 留到下次处理 | 暂停。下次在同一个项目里调用 Matt Pocock 开发工作流，说「继续」。 |
+| 验收和审查完成，准备结束 | 收尾 |
+
+首次需要项目配置时，Agent 会展示拟写入的内容，经你确认后再 [启用项目](SKILL.md#项目启用)。
+
+---
+
+<a id="project-files"></a>
+
+## 📁 项目里会新增什么？
+
+| 文件或目录 | 用来做什么 |
+|---|---|
+| `.scratch/matt-mainflow/<任务名>/state.md` | 记录当前阶段、已确认的范围和下一步，供新会话续接。 |
+| `.scratch/<任务名>/issues/` | 需要拆分时，存放确认后的工单，每张一个 Markdown 文件。 |
+
+书面规格沿用项目的本地约定。收尾后，正式成果已提交且你确认过清单时，可以回复「清理本任务」移除对应的临时文件。
+
+[场景验收清单](references/validation.md)

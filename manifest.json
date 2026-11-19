@@ -1,0 +1,51 @@
+{
+  "type": "skill",
+  "code": "matt-mainflow",
+  "version": "1.0.0",
+  "name": "Matt Pocock Mainflow",
+  "description": "将 Matt Pocock 的六步开发工作流 The Main Flow（30 万+ GitHub Stars）串成一个入口，帮你和 Agent 在写代码前谈清需求、拆成可验收的工单，写完后按约定审查代码。",
+  "runtimeTargets": [
+    "codex",
+    "claude-code",
+    "workbuddy"
+  ],
+  "examplePrompts": [
+    "用 Matt Pocock 开发工作流 推进登录跳转需求，先确认范围和验收条件。",
+    "按已有规格推进实现和代码审查，先核对规格是否适用于当前任务。",
+    "继续当前项目里暂停的任务，告诉我现在在哪一步。"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "2e869165e4709311f5ff4fd3b8fad85f6c683e11ba9edc813d3c51a0f625e83a"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "691a35e21488bcb116e49ac2b154285cd94ca6269cdb35b74a9ab2372b7f4a13"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "sha256": "9d1e0ac8f1b80659ca77049ba0fbdf6932d641a6b734194dea7d648d4ea7955a"
+    },
+    {
+      "path": "assets/the-main-flow.png",
+      "sha256": "27e6ce0e404d9687a468645193fa2f8e7ccbc6adc231bff696d085cb057b28ad"
+    },
+    {
+      "path": "references/implementation.md",
+      "sha256": "3542d780812264ae3bab43a381d01175b52b2f53944bf495149a3486ba912975"
+    },
+    {
+      "path": "references/setup.md",
+      "sha256": "ffc1b51da534f741ba6c0f42d8f2b7c9be289e007ce5695ae6fcbc42c357f32e"
+    },
+    {
+      "path": "references/state.md",
+      "sha256": "dcaca994560f336a5ea42f18fbf7af541001f6ae250682b9d81967d2c8254da0"
+    },
+    {
+      "path": "references/validation.md",
+      "sha256": "69967498bb8b66c20649849a60384038c99ef16e5f6d51924bf7ea406ed188bd"
+    }
+  ]
+}

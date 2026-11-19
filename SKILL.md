@@ -1,9 +1,9 @@
 ---
 name: matt-mainflow
-description: 用统一入口按任务选择 Matt Pocock 开发阶段，显示进度和下一步，支持范围确认、续接、回退及已有产物接入。用户要求使用 matt-mainflow 或按 Matt 主流程开发时使用。
+description: 编排 Matt Pocock 的 The Main Flow。用户要求使用 matt-mainflow 或按 Matt 主流程开发时，根据已有产物选择上游阶段，显示进度与下一步，并支持范围确认、回退和跨会话续接。
 ---
 
-# Matt Mainflow
+# Matt Pocock Mainflow
 
 使用简体中文。完整路线为**需求讨论 → 写规格 → 拆工单 → 实现 → 代码审查 → 复盘**。同一任务的「继续」「确认」「返回」沿用本入口。
 
