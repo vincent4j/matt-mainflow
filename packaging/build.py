@@ -55,9 +55,9 @@ def render_entry(source, guide_paths, manifest):
     table = re.sub(r"`([a-z0-9-]+)`", lambda match: f"@{guide_paths[match[1]]}", table)
 
     metadata = {
-        "display_name": "Matt Pocock 开发工作流",
-        "display_name_en": manifest["name"],
-        "description_zh": "把 Matt Pocock 的 The Main Flow 串成一个入口，根据任务进度推进需求讨论、规格、工单、实现、审查和复盘。阶段指引随技能提供。由 vincent4j 独立维护。",
+        "display_name": manifest["name"],
+        "display_name_en": manifest["name_en"],
+        "description_zh": manifest["description"],
         "description_en": "One entry point for Matt Pocock's The Main Flow, from requirements to review and retrospective. Includes the upstream guides. Independently maintained by vincent4j.",
         "examples_zh": manifest["examplePrompts"],
         "examples_en": [
