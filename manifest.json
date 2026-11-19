@@ -1,7 +1,7 @@
 {
   "type": "skill",
   "code": "matt-mainflow",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Matt Pocock Mainflow",
   "description": "把 Matt Pocock 的六步开发工作流 The Main Flow（Skills 仓库获 30 万+ GitHub Stars）串成一个入口，给开发流程加上「自动挡」：你只管说要做什么，Agent 会根据实际任务和当前进度判断该走哪一步，并调用对应的 Skill，让这套工作流更容易上手。",
   "runtimeTargets": [
@@ -17,11 +17,11 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "d4135c24c92073cfe28fb9d278d23312565d1292c444b8d29b90a32d417342bd"
+      "sha256": "488f0e1b450be850d325fd86f9c8ed41392a4d0256f19fbb0d14466691d517ef"
     },
     {
       "path": "SKILL.md",
-      "sha256": "a3815b836350545826dfa21de3e845f90602df5897f4a914e7f545e8dbedadbf"
+      "sha256": "a8eb8ed24db04e2ee9cd62c814e6fc3039413b9820babdfd1298340f89e7efba"
     },
     {
       "path": "agents/openai.yaml",
@@ -37,7 +37,7 @@
     },
     {
       "path": "references/implementation.md",
-      "sha256": "c0449377bc24dcc1e79b5861622999a8d7f024114c9a438a15c328e062c47b28"
+      "sha256": "0d222114b6c6ddee34687e8de81e30a0867377a96e9431c72ba827e0d90b0b05"
     },
     {
       "path": "references/setup.md",
@@ -49,7 +49,7 @@
     },
     {
       "path": "references/validation.md",
-      "sha256": "698a67b458c0ef1c1b30bbc4957e43f961c2719db8a3ab1ae7d6d5f953d5af07"
+      "sha256": "b195fa1832ebbf7128eb328617ffa8f19c944e93aa5c7a0c37ab18fafdc183a8"
     }
   ],
   "upstream": {
@@ -79,6 +79,23 @@
       "skills/productivity/writing-for-agents/SKILL-MECHANICS.md": "c768e6307c7c10728c401c213f2c4ba71c542127eeb7ad2956aabd15a0fa0059",
       "skills/productivity/writing-for-agents/SKILL.md": "551adca942227b44192edba88acd4e8db911f0121ce58ad16944ccf6a896a74a"
     },
-    "license": "MIT"
+    "license": "MIT",
+    "standaloneSha256": {
+      "skills/engineering/code-review/agents/openai.yaml": "8229ca854e11dc8e6aef2131ee03f31fb1561cf905fab9ccc325180cf3331352",
+      "skills/engineering/codebase-design/agents/openai.yaml": "edebc9e4fcfe102114012575eaa9600b9b5fd08c311664f389c36e7bc717740f",
+      "skills/engineering/domain-modeling/agents/openai.yaml": "f6bf2aa996c6e6f53fdd0708e18a0d16a56aed8322cca59fedbe3c0d2c75f06b",
+      "skills/engineering/grill-with-docs/agents/openai.yaml": "94cd0ab161fb468a836349f5ed482ba58ce8e709a05c57ce533d739dbd35cca9",
+      "skills/engineering/implement/agents/openai.yaml": "8970a8596ade0c28ab427f41a4ea242d6bdf6186c59ebf55e1238dbecaab79dc",
+      "skills/engineering/retro/agents/openai.yaml": "cb6fb9d7e6b4be5975f41f6def1dd00a1255bad5d9b02696b124c924a8b8745c",
+      "skills/engineering/setup-matt-pocock-skills/agents/openai.yaml": "9527de0110541c45712319025155aeab8dc7d77c6ed6e5e83271bab1851ab939",
+      "skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md": "6fdb3e9b00b7b0b115ecac3b1c00e3790f637f190abf598815368722c0a94692",
+      "skills/engineering/setup-matt-pocock-skills/issue-tracker-gitlab.md": "947602d33a80f98f939fb990995b8f95a3459b114b919c4221d08bd75d7cffe0",
+      "skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md": "7dcda20a2eb4bdc89b95d1143423c0691309921cadae3132e6424f371030506e",
+      "skills/engineering/tdd/agents/openai.yaml": "ea6f01cf1b8c06a4b0f5b649d74b1b8ce8685e72af1b38d70d877693e092af0b",
+      "skills/engineering/to-spec/agents/openai.yaml": "1c5b4d1e3d8e52287ef19cc2742fdbbfae1914ac75d33af3e4c8174f08cc55bb",
+      "skills/engineering/to-tickets/agents/openai.yaml": "21bc6215fffcd7614e9f772bb1760e87cc5fc7dcc707e7d282bc9414267a6090",
+      "skills/productivity/grilling/agents/openai.yaml": "1411d7df7d99b7e621a1ff8283c8133cc2464be63d064e52d8ce169c6800ee9b",
+      "skills/productivity/writing-for-agents/agents/openai.yaml": "eacb24b2a618cfb81dacb0416f4fdd75ddf3a8060f8ddb99aae1b1e301907e4b"
+    }
   }
 }

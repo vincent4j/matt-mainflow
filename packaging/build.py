@@ -16,8 +16,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 def render_manifest(manifest, files):
+    upstream = {key: value for key, value in manifest["upstream"].items() if key != "standaloneSha256"}
     contents = {
         **manifest,
+        "upstream": upstream,
         "files": [
             {"path": name, "sha256": hashlib.sha256(content).hexdigest()}
             for name, content in sorted(files.items())
@@ -86,15 +88,16 @@ def render_entry(source, guide_paths, manifest):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--upstream-archive", type=Path, help="Reuse a downloaded upstream tar.gz")
+    parser.add_argument("--global-suite", action="store_true", help="Build the WorkBuddy user-level installer bundle")
     args = parser.parse_args()
     try:
-        output = build(PROJECT_ROOT, args.upstream_archive)
+        output = build(PROJECT_ROOT, args.upstream_archive, args.global_suite)
     except (OSError, ValueError, KeyError, tarfile.TarError) as error:
         parser.exit(1, f"离线打包失败：{error}\n")
     print(output)
 
 
-def build(root, upstream_archive):
+def build(root, upstream_archive, global_suite=False):
     manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
     version = manifest["version"]
     if not isinstance(version, str) or not re.fullmatch(r"[0-9][0-9A-Za-z.+-]*", version):
@@ -121,12 +124,21 @@ def build(root, upstream_archive):
         "Matt Pocock Mainflow is independently maintained by vincent4j.\n"
     ).encode("utf-8")
     guide_paths = {}
+    suite_skills = {}
+    locked_files = lock["sha256"]
+    if global_suite:
+        lock = {**lock, "sha256": {**locked_files, **lock["standaloneSha256"]}}
     for source_path, content in read_upstream(lock, upstream_archive):
         if source_path.name == "LICENSE":
             files["references/mattpocock-LICENSE.txt"] = content
             continue
-        guide = source_path.parent.name
+        guide = source_path.parts[2]
         is_entry = source_path.name == "SKILL.md"
+        if global_suite:
+            relative = PurePosixPath(*source_path.parts[2:])
+            suite_skills[f"skills/{relative}"] = content
+        if str(source_path) not in locked_files:
+            continue
         filename = "guide.md" if is_entry else source_path.name
         destination = f"references/mattpocock/{guide}/{filename}"
         files[destination] = content
@@ -140,14 +152,26 @@ def build(root, upstream_archive):
             raise ValueError(f"Missing runtime reference: {path}")
 
     files["manifest.json"] = render_manifest(manifest, files)
-    output = root / "dist" / f"matt-mainflow-offline-{version}.zip"
+    if global_suite:
+        suite_skills.update({f"skills/matt-mainflow/{name}": content for name, content in files.items()})
+        for guide in guide_paths:
+            suite_skills[f"skills/{guide}/LICENSE"] = files["references/mattpocock-LICENSE.txt"]
+        suite_skills["install.py"] = (root / "packaging/install.py").read_bytes()
+        suite_skills["README.md"] = (root / "packaging/README.md").read_bytes()
+        bundle_files = suite_skills
+        bundle_name = f"matt-mainflow-global-{version}"
+    else:
+        bundle_files = files
+        bundle_name = "matt-mainflow"
+    suffix = "global" if global_suite else "offline"
+    output = root / "dist" / f"matt-mainflow-{suffix}-{version}.zip"
     output.parent.mkdir(parents=True, exist_ok=True)
     with NamedTemporaryFile(dir=output.parent, delete=False) as temporary:
         staging_path = Path(temporary.name)
     try:
         with ZipFile(staging_path, "w") as bundle:
-            for name, content in sorted(files.items()):
-                member = ZipInfo(f"matt-mainflow/{name}")
+            for name, content in sorted(bundle_files.items()):
+                member = ZipInfo(f"{bundle_name}/{name}")
                 member.external_attr = 0o100644 << 16
                 bundle.writestr(member, content, compress_type=ZIP_DEFLATED, compresslevel=9)
         staging_path.replace(output)
