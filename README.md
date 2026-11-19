@@ -11,10 +11,13 @@
 - 推进：`确认继续`
 - 调整：`返回写规格，我想修改验收条件`
 - 暂停：`暂停`；以后在项目中再次调用入口即可续接。
+- 收尾：6/6 复盘完成后回复 `收尾`，盘点临时文件，将长期有用的内容并入正式文档、代码或测试。正式成果提交后，确认清单并回复 `清理本任务`，删除该任务的全部临时产物。
 
-每个任务的进度保存在实际开发项目的 `.scratch/matt-mainflow/<task-slug>/state.md`。首次需要项目配置时，引导设置工单位置和文档布局；支持从已有规格或工单接入。
+每个任务的进度保存在实际开发项目的 `.scratch/matt-mainflow/<task-slug>/state.md`。工单存于开发项目的 `.scratch/<task-slug>/issues/`，每张一个编号 Markdown 文件。支持从已有规格或工单接入。
 
 ## 依赖与安装
+
+项目首次启用时，从 `matt-mainflow` 入口按 [项目启用](SKILL.md#项目启用) 配置本地工单和 Git 忽略规则。
 
 本 skill 复用 [mattpocock/skills](https://github.com/mattpocock/skills) 的阶段指引，不包含其副本。需要：`grill-with-docs`、`to-spec`、`to-tickets`、`implement`、`code-review`、`retro`，以及 `setup-matt-pocock-skills`、`grilling`、`domain-modeling`、`tdd`、`codebase-design`、`writing-for-agents`。不使用 `implement-spec`。
 
