@@ -1,7 +1,7 @@
 {
   "type": "skill",
   "code": "matt-mainflow",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "name": "Matt Pocock 开发工作流",
   "name_en": "Matt Pocock Mainflow",
   "description": "把 Matt Pocock 的六步开发工作流 The Main Flow（Skills 仓库获 30 万+ GitHub Stars）串成一个入口，给开发流程加上「自动挡」：你只管说要做什么，Agent 会根据实际任务和当前进度判断该走哪一步，并调用对应的 Skill，让这套工作流更容易上手。",
